@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffe5ef">
+<title>مغامرة حسناء والقطط السحرية</title>
+<style>
+:root{--pink:#f7a9c4;--deep:#c94f83;--pale:#fff3f8;--ink:#63364d;--gold:#f5c96b;--mint:#bfe9dc}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;background:radial-gradient(circle at 15% 10%,#fff 0,#fff5fa 30%,#ffe5ef 100%);color:var(--ink);min-height:100vh}
+button{font:inherit;cursor:pointer;border:0;transition:transform .15s,filter .15s}
+button:hover{filter:brightness(1.03);transform:translateY(-2px)}button:active{transform:scale(.98)}
+.shell{max-width:980px;margin:auto;padding:18px 14px 36px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.brand{font-weight:900;font-size:clamp(1.05rem,3vw,1.5rem)}.brand span{color:var(--deep)}
+.pill{background:#fff;border:1px solid #f7d3e1;border-radius:999px;padding:8px 13px;font-weight:750;font-size:.9rem;box-shadow:0 5px 18px #c94f8310}
+.panel{background:#ffffffdc;border:1px solid #f4d3e1;border-radius:26px;padding:clamp(16px,4vw,30px);box-shadow:0 18px 55px #b64e7912;backdrop-filter:blur(8px)}
+.hero{text-align:center;overflow:hidden;position:relative}
+.eyebrow{color:var(--deep);font-weight:850;letter-spacing:.04em;font-size:.9rem}
+h1{font-size:clamp(1.9rem,6vw,3.4rem);line-height:1.15;margin:10px 0;color:#a83d70}
+.subtitle{max-width:650px;margin:0 auto 18px;line-height:1.9;color:#80546a}
+.cast{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:22px 0}
+.cat{background:linear-gradient(160deg,#fff,#fff0f6);border:1px solid #f4d0df;border-radius:20px;padding:13px 8px}
+.cat .emoji{font-size:clamp(2.6rem,9vw,4.4rem);display:block;filter:drop-shadow(0 6px 5px #8c416522)}
+.cat b{display:block;margin-top:3px;color:#a83d70}.cat small{color:#956b7e}
+.primary,.secondary,.choice{border-radius:16px;padding:13px 18px;font-weight:850}
+.primary{background:linear-gradient(135deg,#ee8fb5,#d85f95);color:white;box-shadow:0 9px 22px #d85f9533}
+.secondary{background:white;color:var(--deep);border:1px solid #f1c3d5}
+.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.progress-wrap{height:9px;background:#fbe0ea;border-radius:99px;overflow:hidden;margin:14px 0 20px}
+.progress{height:100%;background:linear-gradient(90deg,#f4bfd3,#d85f95);width:0%;transition:width .35s}
+.gamehead{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.stage{color:var(--deep);font-weight:900}
+.story{font-size:clamp(1.1rem,3vw,1.35rem);font-weight:800;line-height:1.8;margin:10px 0}
+.desc{line-height:1.9;color:#80546a;margin:0 0 18px}
+.scene{background:linear-gradient(135deg,#fff0f7,#f7e8ff);border-radius:22px;padding:18px;text-align:center;margin:16px 0;border:1px solid #f4d0e0}
+.scene .big{font-size:clamp(3.4rem,12vw,5.8rem);display:block;margin-bottom:4px}
+.choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.choice{text-align:right;background:#fff;border:1px solid #f1cbd9;color:#75405b;line-height:1.6;min-height:66px}
+.choice:hover{border-color:#e38bb0;background:#fff7fb}
+.feedback{min-height:32px;margin-top:13px;font-weight:800;color:#b33d73;line-height:1.7}
+.footer{text-align:center;color:#b17a93;font-size:.82rem;margin-top:18px}
+.hidden{display:none!important}
+.end-card{background:linear-gradient(145deg,#fff8fb,#ffe2ee);border:1px solid #f3c2d6;border-radius:22px;padding:20px;text-align:center;line-height:1.9}
+.letter{background:white;border-radius:18px;padding:20px;text-align:right;line-height:2;white-space:pre-line;border:1px dashed #e7a0bd;margin-top:14px}
+.sparkle{position:absolute;opacity:.35;font-size:1.4rem;animation:float 4s ease-in-out infinite}.s1{top:15%;right:7%}.s2{top:24%;left:8%;animation-delay:1s}.s3{bottom:13%;right:12%;animation-delay:2s}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(12deg)}}
+@media(max-width:520px){.shell{padding:12px 10px 25px}.cast{gap:7px}.cat{padding:10px 4px}.choices{grid-template-columns:1fr}.choice{text-align:center}.panel{border-radius:21px}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="top">
+    <div class="brand">♡ <span>Hassana's</span> Magical Paws</div>
+    <div class="pill">⭐ النقاط: <span id="scoreTop">0</span></div>
+  </div>
+
+  <section id="intro" class="panel hero">
+    <span class="sparkle s1">✦</span><span class="sparkle s2">♡</span><span class="sparkle s3">✧</span>
+    <div class="eyebrow">حكاية صغيرة معمولة مخصوص</div>
+    <h1>مغامرة حسناء<br>والقطط السحرية</h1>
+    <p class="subtitle">في ليلة وردية، ظهرت بوابة سحرية محتاجة شجاعة وذكاء وقلب طيب. حسناء وقططها الثلاثة هما الأمل الوحيد لإنقاذ مملكة النجوم! جاهزة للمغامرة؟</p>
+    <div class="cast">
+      <div class="cat"><span class="emoji">🐈‍⬛</span><b>Shadow</b><small>الكشاف الشجاع</small></div>
+      <div class="cat"><span class="emoji">🐈</span><b>Loly</b><small>قلب الفريق</small></div>
+      <div class="cat"><span class="emoji">🐈</span><b>Desha</b><small>المستكشف المشاكس</small></div>
+    </div>
+    <p class="desc">اجمعي النجوم، اختاري الطريق الصح، وساعدي أصحابك توصلي للمفاجأة الأخيرة. ✨</p>
+    <button class="primary" id="startBtn">ابدئي المغامرة ✨</button>
+  </section>
+
+  <section id="game" class="panel hidden">
+    <div class="gamehead"><span class="stage" id="stageLabel">المرحلة 1 من 5</span><span class="pill">💗 <span id="score">0</span> نقطة</span></div>
+    <div class="progress-wrap"><div class="progress" id="progress"></div></div>
+    <div class="scene"><span class="big" id="sceneEmoji">🌙</span><div class="eyebrow" id="sceneTitle">بوابة القمر</div></div>
+    <div class="story" id="story"></div>
+    <p class="desc" id="desc"></p>
+    <div class="choices" id="choices"></div>
+    <div class="feedback" id="feedback" aria-live="polite"></div>
+    <div class="actions"><button class="secondary" id="restartBtn">↻ ابدئي من جديد</button></div>
+  </section>
+
+  <section id="ending" class="panel hidden">
+    <div class="eyebrow">وصلتوا للنهاية! ✨</div>
+    <h1 style="font-size:clamp(2rem,6vw,3rem)">ملكة مملكة النجوم</h1>
+    <div class="end-card">
+      <div style="font-size:3rem">👑 🐾 💗</div>
+      <p id="endText">حسناء، أنتي بطلة الحكاية!</p>
+      <p>نتيجتك: <strong id="finalScore">0</strong> نقطة من 50 ⭐</p>
+      <div class="letter" id="letter">إلى حسناء الجميلة 💗
+
+يمكن المغامرة خلصت، بس الحكايات الحلوة بتبدأ من وجود الناس اللي بيخلّوا أيامنا ألطف.
+أتمنى كل يوم ليكي يكون مليان راحة وضحكة وحاجات صغيرة تفرّح قلبك.
+وخلي بالك من شادو ولولي وديشا… واضح إنهم محظوظين جدًا إنك صاحبتهم. 🐾
+
+مع أطيب الأمنيات، وإلى مغامرة جديدة قريبًا! ♡</div>
+    </div>
+    <div class="actions"><button class="primary" id="playAgain">العبِي تاني 💫</button><button class="secondary" id="copyLetter">انسخي الرسالة 💌</button></div>
+    <div class="feedback" id="copyFeedback" aria-live="polite"></div>
+  </section>
+  <div class="footer">صُنعت بحب لحسناء وشادو ولولي وديشا ♡</div>
+</div>
+<script>
+const levels = [
+ {emoji:"🌙",title:"بوابة القمر",story:"وصلت حسناء وأصحابها لباب المملكة، لكن البوابة مقفولة بثلاث نجوم. Shadow لمح نقشًا على الباب!",desc:"النقش بيقول: «أنا بنوّر السما بالليل، وببان كامل أحيانًا… مين أنا؟»",choices:[["🌕 القمر",true,"برافو! القمر نوّر الطريق وShadow كسب نجمة."],["🌳 شجرة",false,"مش دي! ركزي في حاجة بنشوفها في السما بالليل."]]},
+ {emoji:"🌸",title:"حديقة الهمسات",story:"دخل الفريق حديقة وردية، وسمع صوتًا خافتًا. Loly قربت من زهرة سحرية وبدأت تلمع.",desc:"الزهرة هتفتح لو اخترتي التصرف اللطيف الصح.",choices:[["💗 اسقي الزهرة واهتمي بيها",true,"Loly خرخرت بسعادة، والزهرة فتحت وطلعت نجمة!"],["💨 أسيبها وأجري",false,"الزهرة لسه محتاجة شوية اهتمام… جربي تاني."]]},
+ {emoji:"🦋",title:"جسر الفراشات",story:"Desha شاف فراشة ذهبية بتطير ناحية جسر شفاف فوق النهر. الجسر بيظهر لما تتجمع 3 ألوان.",desc:"أي مجموعة فيها ألوان قوس قزح؟",choices:[["❤️ أحمر وأصفر وأزرق",true,"الألوان لمعت والجسر ظهر! Desha سبق الكل بخطوتين."],["🖤 أسود ورمادي وبني",false,"الجسر محتاج ألوان زاهية… جربي مجموعة تانية."]]},
+ {emoji:"🔮",title:"لغز البلورة",story:"في قلب الغابة، لقى Shadow بلورة بتحرسها بومة حكيمة. قالت: «كل ما شاركت النور مع غيرك، النور يزيد!»",desc:"إيه أحسن حاجة تعملها حسناء عشان البلورة تضيء؟",choices:[["✨ أشارك النجوم مع الفريق",true,"البلورة نورت المكان كله، وكل قطة خدت نجمة."],["🙈 أخبّي كل النجوم لنفسي",false,"النور السحري بيزيد بالمشاركة… حاولي مرة كمان."]]},
+ {emoji:"🎁",title:"صندوق المفاجأة",story:"وصلتوا للقصر الوردي. الصندوق الأخير مش هيفتح غير بكلمة سر بسيطة من قلبك.",desc:"اختاري الكلمة اللي بتناسب نهاية مغامرة فيها صحاب وحنية وقطط.",choices:[["💞 المحبة",true,"الصندوق اتفتح! والمفاجأة مستنياكي يا حسناء."],["😴 الملل",false,"دي مش كلمة سحرية مناسبة للمغامرة… جربي تاني."]]}
+];
+let current=0,score=0,locked=false;
+const $=id=>document.getElementById(id);
+function show(id){["intro","game","ending"].forEach(x=>$(x).classList.toggle("hidden",x!==id))}
+function start(){current=0;score=0;locked=false;$("scoreTop").textContent="0";show("game");render()}
+function render(){
+ locked=false;const l=levels[current];
+ $("stageLabel").textContent=`المرحلة ${current+1} من ${levels.length}`;
+ $("progress").style.width=`${current/levels.length*100}%`;
+ $("sceneEmoji").textContent=l.emoji;$("sceneTitle").textContent=l.title;
+ $("story").textContent=l.story;$("desc").textContent=l.desc;$("feedback").textContent="";
+ $("score").textContent=score;$("scoreTop").textContent=score;
+ const choices=$("choices");choices.innerHTML="";
+ l.choices.forEach(([label,correct,msg])=>{const b=document.createElement("button");b.className="choice";b.textContent=label;b.onclick=()=>choose(b,correct,msg);choices.appendChild(b)});
+}
+function choose(btn,correct,msg){
+ if(locked)return;
+ if(correct){locked=true;score+=10;$("score").textContent=score;$("scoreTop").textContent=score;$("feedback").textContent="⭐ "+msg;
+ [...$("choices").children].forEach(b=>b.disabled=true);
+ btn.style.background="#e9fff7";btn.style.borderColor="#9bd9c6";
+ const next=document.createElement("button");next.className="primary";next.style.marginTop="12px";next.style.width="100%";next.textContent=current===levels.length-1?"اكتشفي المفاجأة 💗":"كمّلي للمرحلة التالية ←";next.onclick=()=>{current++;if(current<levels.length)render();else finish()};$("choices").appendChild(next);
+ $("progress").style.width=`${(current+1)/levels.length*100}%`;
+ }else{$("feedback").textContent="💫 "+msg;btn.style.background="#fff0f0";setTimeout(()=>btn.style.background="",450)}
+}
+function finish(){show("ending");$("finalScore").textContent=score;$("endText").textContent=score===50?"يا سلام يا حسناء! جمعتي كل النجوم وبقيتي بطلة المملكة بلا منازع. 💗":"يا حسناء، أنتي بطلة المغامرة! كل اختيار قرّب الفريق من النهاية السعيدة. 💗"}
+$("startBtn").onclick=start;$("restartBtn").onclick=start;$("playAgain").onclick=start;
+$("copyLetter").onclick=async()=>{const text=$("letter").innerText;try{await navigator.clipboard.writeText(text);$("copyFeedback").textContent="اتنسخت الرسالة! تقدري تبعتيها لحسناء 💌"}catch(e){const area=document.createElement("textarea");area.value=text;document.body.appendChild(area);area.select();document.execCommand("copy");area.remove();$("copyFeedback").textContent="حاولنا ننسخ الرسالة؛ لو ما اتنسختش، حددي النص وانسخيه يدويًا."}};
+</script>
+</body>
+</html>
